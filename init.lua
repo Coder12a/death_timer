@@ -168,12 +168,6 @@ end)
 minetest.register_on_dieplayer(function(player)
 	local name = player:get_player_name()
 	local p = players[name]
-	if p then
-		return
-	end
-	if p and p.time then
-		return
-	end
 	local privs = minetest.get_player_privs(name)
 	if not p then
 		p = {}
