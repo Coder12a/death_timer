@@ -1,2 +1,2 @@
-# The initial timeout on respawn
+# The respawn cooldown.
 death_timer.timeout (Timeout) int 8

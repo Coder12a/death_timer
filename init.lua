@@ -102,19 +102,11 @@ function death_timer.loop(player, name)
 	end
 end
 
-minetest.register_on_joinplayer(function(player)
-	minetest.after(5, function(name)
+minetest.register_on_prejoinplayer(function(name, ip)
 		local p = players[name]
-		if p and p.time and p.time > 1 then
-			local player = minetest.get_player_by_name(name)
-			if not player then
-				return
-			end
-			death_timer.hide(player, name)
-			death_timer.create_deathholder(player, name)
-			death_timer.create_loop(player, name)
+		if p and p.time and p.time > 0 then
+			return "You have to wait out the death ban for " .. p.time .. " seconds."
 		end
-	end, player:get_player_name())
 end)
 minetest.register_on_leaveplayer(function(player)
 	local name = player:get_player_name()
@@ -146,7 +138,7 @@ minetest.register_on_mods_loaded(function()
 		if player:get_hp() < 1 or not players[name] then
 			return
 		end
-		minetest.after(1, function(name)
+		minetest.after(0, function(name)
 			local player = minetest.get_player_by_name(name)
 			death_timer.create_deathholder(player, name)
 			minetest.after(1, death_timer.create_loop, player, name)
