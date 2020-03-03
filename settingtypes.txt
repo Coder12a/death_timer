@@ -1,8 +1,2 @@
 # The initial timeout on respawn
-death_timer.initial_timeout (Initial timeout) int 8
-# The extra timeout values to add after the initial timeout (disable this by setting it to zero)
-death_timer.timeout (Timeout) int 1
-# The time it takes to reduce the death timeout (disable this by setting it to zero)
-death_timer.timeout_reduce_loop (Reduce-tick) int 3600
-# The amount to reduce from the death timer timeout (disable this by setting it to zero)
-death_timer.timeout_reduce_rate (Reduce-rate) int 1
+death_timer.timeout (Timeout) int 8
