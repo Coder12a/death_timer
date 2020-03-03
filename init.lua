@@ -1,7 +1,7 @@
 local death_timer = {}
 local players = {}
 
-local timeout = tonumber(minetest.settings:get("death_timer.timeout")) or 20
+local timeout = tonumber(minetest.settings:get("death_timer.timeout")) or 8
 local cloaking_mod = minetest.global_exists("cloaking")
 
 function death_timer.show(player, name)
